@@ -65,7 +65,7 @@ class CompanyController extends AppBaseController
         $company->database_name = 'vtiger_tenant_'.$company->id;
         $company->save();
 
-
+/*
         shell_exec(env('PATH_MYSQL').' -u '.env("DB_USERNAME").' -p'.env("DB_PASSWORD").' -e "create database '.$company->database_name.';"');
 
         //shell_exec(env('PATH_MYSQL_DUMP').' -u '.env("DB_USERNAME").' -p'.env("DB_PASSWORD").' vtiger > tmp.sql');
@@ -75,7 +75,7 @@ class CompanyController extends AppBaseController
         $conn = new mysqli(env("DB_HOST"),env("DB_USERNAME"), env("DB_PASSWORD"), $company->database_name);
         $sql = "UPDATE vtiger_users SET user_name='".$company->usuario."' WHERE id=1";
         $result = $conn->query($sql);
-
+*/
         Flash::success('Company saved successfully.');
 
         return redirect(route('companies.index'));
