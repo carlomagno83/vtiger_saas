@@ -63,6 +63,7 @@ class CompanyController extends AppBaseController
 
         $company = \App\Models\Company::find($company->id);
         $company->database_name = 'vtiger_tenant_'.$company->id;
+        $company->usuario = 'admin_'.$company->usuario;
         $company->save();
 
 
@@ -73,7 +74,7 @@ class CompanyController extends AppBaseController
 
         //Update name user
         $conn = mysqli_connect(env("DB_HOST"),env("DB_USERNAME"), env("DB_PASSWORD"), $company->database_name);
-        $sql = "UPDATE vtiger_users SET user_name='admin_".$company->usuario."' WHERE id=1";
+        $sql = "UPDATE vtiger_users SET user_name='".$company->usuario."' WHERE id=1";
         $result = mysqli_query($conn,$sql);
 
         Flash::success('Company saved successfully.');
