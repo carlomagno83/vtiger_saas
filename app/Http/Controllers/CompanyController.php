@@ -66,7 +66,9 @@ class CompanyController extends AppBaseController
         $company->save();
 
 
-        shell_exec(env('PATH_MYSQL').' -u '.env("DB_USERNAME").' -p'.env("DB_PASSWORD").' -e "create database '.$company->database_name.';"');
+        $exec1 = env('PATH_MYSQL').' -u '.env("DB_USERNAME").' -p'.env("DB_PASSWORD").' -e "create database '.$company->database_name.';"';
+        shell_exec($exec1);
+        dd($exec1);
 
         //shell_exec(env('PATH_MYSQL_DUMP').' -u '.env("DB_USERNAME").' -p'.env("DB_PASSWORD").' vtiger > tmp.sql');
         shell_exec(env('PATH_MYSQL').' '.$company->database_name.' -u '.env("DB_USERNAME").' -p'.env("DB_PASSWORD").' < tmp.sql');
