@@ -66,7 +66,7 @@ class CompanyController extends AppBaseController
         $company->save();
 
 
-        $exec1 = env('PATH_MYSQL').' -u '.env("DB_USERNAME").' -p"'.env("DB_PASSWORD").'" -e "create database '.$company->database_name.';"';
+        $exec1 = env('PATH_MYSQL').' -u '.env("DB_USERNAME").' -p\''.env("DB_PASSWORD").'\' -e "create database '.$company->database_name.';"';
         shell_exec($exec1);
         dd($exec1);
 
