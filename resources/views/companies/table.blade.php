@@ -5,8 +5,9 @@
         <th>Database Name</th>
         <th>Razon Social</th>
         <th>Contacto</th>
-        <th>Telefono</th>
-        <th>Ruc</th>
+        <!--<th>Telefono</th>
+        <th>Ruc</th>-->
+        <th>Url</th>
         <th colspan="3">Action</th>
     </thead>
     <tbody>
@@ -17,8 +18,9 @@
             <td>{!! $company->database_name !!}</td>
             <td>{!! $company->razon_social !!}</td>
             <td>{!! $company->contacto !!}</td>
-            <td>{!! $company->telefono !!}</td>
-            <td>{!! $company->ruc !!}</td>
+            {{--<td>{!! $company->telefono !!}</td>--}}
+                {{--<td>{!! $company->ruc !!}</td>--}}
+            <td> <a target="_blank" href="{!! $company->url !!}">{!! $company->url !!}</a> </td>
             <td>
                 {!! Form::open(['route' => ['companies.destroy', $company->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

@@ -40,11 +40,16 @@ Route::resource('companies', 'CompanyController');
 Route::get('test', function () {
 
 
-	$conn = new mysqli("localhost","mario", "root", "vtiger_tenant_13");
-	$sql = "UPDATE vtiger_users SET user_name='admin_xxx' WHERE id=1";
-	$result = $conn->query($sql);
-	dd($result);
+    $conn = new mysqli("localhost","mario", "root", "vtiger_tenant_13");
+    $sql = "UPDATE vtiger_users SET user_name='admin_xxx' WHERE id=1";
+    $result = $conn->query($sql);
+    dd($result);
 
 });
 
 
+Route::get('test2', function () {
+
+    dd(URL::to(''));
+
+});

@@ -64,6 +64,7 @@ class CompanyController extends AppBaseController
         $company = \App\Models\Company::find($company->id);
         $company->database_name = 'vtiger_tenant_'.$company->id;
         $company->usuario = 'admin_'.$company->usuario;
+        $company->url = env('PATH_SERVER').'?company_id='.$company->id;
         $company->save();
 
 
